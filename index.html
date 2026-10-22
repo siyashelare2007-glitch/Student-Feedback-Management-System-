@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Student Feedback Management System</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ background-color: #f2f6fc;
+ text-align: center;
+ }
+ header {
+ background-color: #1e3a5f;
+ color: white;
+ padding: 25px;
+ }
+ header h1 {
+ margin: 0;
+ }
+ .container {
+ background-color: white;
+ width: 70%;
+ margin: 50px auto;
+ padding: 35px;
+ border-radius: 10px;
+ box-shadow: 0px 0px 10px #aaa;
+ }
+ h2 {
+ color: #1e3a5f;
+ }
+ p {
+ font-size: 18px;
+ line-height: 1.6;
+ }
+ .button {
+ background-color: #1e3a5f;
+ color: white;
+ padding: 12px 25px;
+ border: none;
+ border-radius: 5px;
+ text-decoration: none;
+ display: inline-block;
+ margin-top: 20px;
+ cursor: pointer;
+ font-size: 16px;
+ }
+ .button:hover {
+ background-color: #2f5d8a;
+ }
+ #feedbackPage,
+ #successPage {
+ display: none;
+ }
+ .form-container {
+ background-color: white;
+ width: 65%;
+ margin: 40px auto;
+ padding: 30px;
+ border-radius: 10px;
+ box-shadow: 0px 0px 10px #aaa;
+ text-align: left;
+ }
+ .form-container h2 {
+     text-align: center;
+ }
+ label {
+ font-weight: bold;
+ display: block;
+ margin-top: 15px;
+ }
+ input,
+ select,
+ textarea {
+ width: 100%;
+ padding: 10px;
+ margin-top: 7px;
+ border: 1px solid #aaa;
+ border-radius: 5px;
+ box-sizing: border-box;
+ font-size: 15px;
+ }
+ textarea {
+ height: 100px;
+ resize: vertical;
+ }
+ .submit-button {
+ display: block;
+ margin: 25px auto 0;
+ }
+ .success-container {
+ background-color: white;
+ width: 60%;
+ margin: 100px auto;
+ padding: 40px;
+ border-radius: 10px;
+ box-shadow: 0px 0px 10px #aaa;
+ }
+ .success-container h1 {
+ color: green;
+ }
+ </style>
+</head>
+<body>
+ <!-- HOME PAGE -->
+ <div id="homePage">
+ <header>
+ <h1>Student Feedback Management System</h1>
+ </header>
+ <div class="container">
+ <h2>Welcome to Student Feedback Management System</h2>
+ <p>
+ This system allows students to provide feedback
+ about their teachers, subjects and learning experience.
+ </p>
+ <p>
+ Students can fill in their details and submit
+ their valuable feedback.
+ </p>
+ <button class="button" onclick="showFeedback()">
+ Give Feedback
+ </button>
+ </div>
+ </div>
+ <!-- FEEDBACK PAGE -->
+ <div id="feedbackPage">
+ <div class="form-container">
+ <h2>Student Feedback Form</h2>
+ <form onsubmit="submitFeedback(event)">
+ <label>Student Name:</label>
+ <input
+ type="text"
+ placeholder="Enter your name"
+ required
+ >
+ <label>Roll Number:</label>
+ <input
+ type="text"
+ placeholder="Enter your roll number"
+ required
+ >
+ <label>Course / Branch:</label>
+ <select required>
+ <option value="">
+ Select Course
+ </option>
+ <option>
+ Computer Engineering
+ </option>
+ <option>
+ Information Technology
+ </option>
+ <option>
+ Electronics Engineering
+ </option>
+ <option>
+ Mechanical Engineering
+ </option>
+ <option>
+ Civil Engineering
+ </option>
+ </select>
+ <label>Subject:</label>
+ <input
+ type="text"
+ placeholder="Enter subject name"
+ required
+ >
+ <label>Teacher Name:</label>
+ <input
+ type="text"
+ placeholder="Enter teacher name"
+ required
+ >
+ <label>Comments / Suggestions:</label>
+ <textarea
+ placeholder="Enter your feedback or suggestions"
+ ></textarea>
+ <button
+ type="submit"
+ class="button submit-button"
+ >
+ Submit Feedback
+ </button>
+ </form>
+ </div>
+ </div>
+ <!-- SUCCESS PAGE -->
+ <div id="successPage">
+ <div class="success-container">
+ <h1>[OK] Feedback Submitted Successfully!</h1>
+ <p>
+ Thank you for providing your valuable feedback.
+ </p>
+ <button
+ class="button"
+ onclick="showHome()"
+ >
+ Back to Home
+ </button>
+ </div>
+ </div>
+ <script>
+ function showFeedback() {
+ document.getElementById("homePage").style.display = "none";
+ document.getElementById("feedbackPage").style.display = "block";
+ document.getElementById("successPage").style.display = "none";
+ }
+ function submitFeedback(event) {
+ event.preventDefault();
+ document.getElementById("homePage").style.display = "none";
+ document.getElementById("feedbackPage").style.display = "none";
+ document.getElementById("successPage").style.display = "block";
+ }
+ function showHome() {
+ document.getElementById("homePage").style.display = "block";
+ document.getElementById("feedbackPage").style.display = "none";
+ document.getElementById("successPage").style.display = "none";
+ }
+ </script>
+</body>
+</html>
